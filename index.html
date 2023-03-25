@@ -4,9 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="./js/app.js" defer></script>
     <title>Color Scheme Generator</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1 class="main-heading">Color Scheme Generator</h1>
+      <form class="form" id="form">
+        <input type="color" id="color" />
+        <select id="scheme-mode">
+          <option value="monochrome" selected>Monochrome</option>
+          <option value="monochrome-dark">Monochrome dark</option>
+          <option value="monochrome-light">Analogic</option>
+          <option value="complement">Complement</option>
+          <option value="analogic-complement">Analogic Complement</option>
+          <option value="triad">Triad</option>
+        </select>
+        <button type="submit" class="btn">Generate</button>
+      </form>
+    </header>
+    <main class="main">
+      <section class="color-scheme" id="color-scheme"></section>
+    </main>
+  </body>
 </html>
