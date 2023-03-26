@@ -38,7 +38,7 @@ select {
   max-width: 350px;
 }
 
-/* Utility class */
+/* Utility classes */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -59,7 +59,8 @@ select {
 .main-heading {
   color: #e8f1f2;
   font-family: 'Delicious Handrawn', cursive;
-  font-size: 3rem;
+  font-size: 2rem;
+  text-align: center;
   letter-spacing: 5px;
   text-transform: uppercase;
 }
@@ -68,14 +69,18 @@ select {
 .header {
   background-color: #1f2937;
   padding: 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.main {
-  position: relative;
-  height: 100%;
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    row-gap: 2rem;
+    justify-content: center;
+  }
 }
 
 .form {
@@ -84,6 +89,11 @@ select {
   justify-content: flex-end;
   align-items: center;
   column-gap: 2rem;
+}
+
+.main {
+  position: relative;
+  height: 100%;
 }
 
 .color-scheme {
@@ -95,9 +105,15 @@ select {
   right: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .color-scheme {
+    flex-direction: column;
+  }
+}
+
 .color-container {
-  width: calc(100% / 5);
   height: 100%;
+  width: 100%;
   position: relative;
 }
 
@@ -124,12 +140,20 @@ select {
   z-index: 200;
 }
 
-.color-info__value:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+@media (hover: hover) {
+  .color-info__value:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .color-info__name {
   font-size: 0.875rem;
+}
+
+@media screen and (max-width: 768px) {
+  .color-info__name {
+    display: none;
+  }
 }
 
 .modal {
@@ -137,6 +161,7 @@ select {
   border-radius: 0.5rem;
   color: #e8f1f2;
   font-size: 1.25rem;
+  text-align: center;
   padding: 1rem 2rem;
   position: absolute;
   opacity: 0;
