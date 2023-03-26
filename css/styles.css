@@ -14,6 +14,7 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
+  position: relative;
 }
 
 input {
@@ -80,8 +81,9 @@ select {
 .form {
   flex-basis: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  column-gap: 2rem;
 }
 
 .color-scheme {
@@ -128,4 +130,23 @@ select {
 
 .color-info__name {
   font-size: 0.875rem;
+}
+
+.modal {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  color: #e8f1f2;
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  opacity: 0;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in;
+  z-index: 1;
+}
+
+.modal.display {
+  opacity: 1;
 }

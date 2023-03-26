@@ -56,8 +56,17 @@ async function copyToClippboard(color) {
   if (state === 'granted' || state === 'prompt') {
     try {
       await navigator.clipboard.writeText(color);
+      displayModal();
     } catch (err) {
       console.log('Failed to copy: ', err);
     }
   }
+}
+
+function displayModal() {
+  const modal = document.querySelector('#modal');
+  modal.classList.add('display');
+  setTimeout(() => {
+    modal.classList.remove('display');
+  }, 1500);
 }
