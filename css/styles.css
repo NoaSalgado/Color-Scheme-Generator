@@ -13,7 +13,7 @@ body {
 
 body {
   font-family: 'Roboto', sans-serif;
-  position: relative;
+  overflow: hidden;
 }
 
 input {
@@ -72,6 +72,11 @@ select {
   justify-content: space-between;
 }
 
+.main {
+  position: relative;
+  height: 100%;
+}
+
 .form {
   flex-basis: 50%;
   display: flex;
@@ -86,10 +91,41 @@ select {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
 }
 
 .color-container {
   width: calc(100% / 5);
   height: 100%;
+  position: relative;
+}
+
+.color-info {
+  font-weight: 700;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.color-info__value {
+  background-color: transparent;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-size: 1.875rem;
+  padding: 1rem;
+  z-index: 200;
+}
+
+.color-info__value:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.color-info__name {
+  font-size: 0.875rem;
 }

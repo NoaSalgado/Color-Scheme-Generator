@@ -22,9 +22,42 @@ async function displayColorScheme() {
   colorSchemeContainer.innerHTML = '';
 
   schemeColors.forEach((color) => {
+    const colorInfo = document.createElement('div');
+    colorInfo.innerHTML = `
+      <span class="color-info__value" data-color=${color.hex.value}>${color.hex.value}</span>
+      <span class="color-info__name">${color.name.value}</span>
+      `;
+    colorInfo.classList.add('color-info');
+    colorInfo.style.color = color.contrast.value;
     const colorContainer = document.createElement('div');
     colorContainer.classList.add('color-container');
     colorContainer.style.backgroundColor = color.hex.value;
+    colorContainer.append(colorInfo);
     colorSchemeContainer.append(colorContainer);
   });
+  addcolorEventHandler();
+}
+
+function addcolorEventHandler() {
+  const colors = document.querySelectorAll('[data-color]');
+  colors.forEach((color) =>
+    color.addEventListener('click', (e) => {
+      copyToClippboard(e.target.dataset.color);
+    })
+  );
+}
+
+async function copyToClippboard(color) {
+  const response = await navigator.permissions.query({
+    name: 'clipboard-write',
+  });
+  const state = response.state;
+
+  if (state === 'granted' || state === 'prompt') {
+    try {
+      await navigator.clipboard.writeText(color);
+    } catch (err) {
+      console.log('Failed to copy: ', err);
+    }
+  }
 }
